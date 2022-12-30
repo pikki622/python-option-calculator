@@ -22,21 +22,17 @@ class BSM():
 
     def delta(self, S, K, V, T, dT):
         if dT == 'C':
-            delta = self.cdf(self.d1(S, K, V, T))
+            return self.cdf(self.d1(S, K, V, T))
         elif dT == 'P':
-            delta = self.cdf(self.d1(S, K, V, T)) - 1
+            return self.cdf(self.d1(S, K, V, T)) - 1
         else:
-            delta = 1
-        return delta
+            return 1
 
     def vega(self, S, K, V, T):
-        vega = (S * math.sqrt(T) * self.pdf(self.d1(S, K, V, T))) / 100
-        return vega
+        return (S * math.sqrt(T) * self.pdf(self.d1(S, K, V, T))) / 100
 
     def theta(self, S, K, V, T):
-        theta = -((S * V * self.pdf(self.d1(S, K, V, T))) / (2 * math.sqrt(T))) / 365
-        return theta
+        return -((S * V * self.pdf(self.d1(S, K, V, T))) / (2 * math.sqrt(T))) / 365
 
     def gamma(self, S, K, V, T):
-        gamma = self.pdf(self.d1(S, K, V, T))/(S * V * math.sqrt(T))
-        return gamma
+        return self.pdf(self.d1(S, K, V, T))/(S * V * math.sqrt(T))

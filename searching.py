@@ -35,16 +35,14 @@ class Search(Pricing):
                 matrix.append([round(start, 2), paramD['dType'], paramD['strike'], paramD['quant'], deltaD, deltaF , theo])
                 #break
             start = start + acc
-        i = 0
         n = len(matrix)
         prices = []
-        while i < n:
+        for i in range(n):
             if prices:
                 if matrix[i-1][4] != matrix[i][4]:
                     prices.append(matrix[i])
             else:
                 prices.append(matrix[i])
-            i = i + 1
         for j in prices:
             print(j[0], '|', j[1], '|', j[2], '|', j[3], '|', j[4], '|', j[5], '|', j[6])
 
@@ -60,15 +58,21 @@ exp3 = 5 / god
 
 fPrice = 21000
 
-params = []
-
 dType = 'F'
 quant = 1
 price = 20000
 strike = 0
 vola = 0
-params.append({'dType': dType, 'price': price, 'quant': quant, 'strike': strike, 'vola': vola, 'exp': exp})
-
+params = [
+    {
+        'dType': dType,
+        'price': price,
+        'quant': quant,
+        'strike': strike,
+        'vola': vola,
+        'exp': exp,
+    }
+]
 dType = 'C'
 quant = 1
 price = 500

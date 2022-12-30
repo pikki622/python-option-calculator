@@ -13,15 +13,21 @@ exp3 = 5 / god
 
 fPrice = 21000
 
-params = []
-
 dType = 'F'
 quant = 1
 price = 20000
 strike = 0
 vola = 0
-params.append({'dType': dType, 'price': price, 'quant': quant, 'strike': strike, 'vola': vola, 'exp': exp})
-
+params = [
+    {
+        'dType': dType,
+        'price': price,
+        'quant': quant,
+        'strike': strike,
+        'vola': vola,
+        'exp': exp,
+    }
+]
 dType = 'C'
 quant = 1
 price = 500
